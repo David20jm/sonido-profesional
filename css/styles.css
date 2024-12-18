@@ -1,4 +1,212 @@
+/* Hero Section con imagen de fondo */
+.hero-section {
+    position: relative; /* Asegura que el ::before se limite a esta sección */
+    background-image: url('../img/Por2.jpg'); /* Ruta de tu imagen */
+    background-size: cover; /* Ajusta la imagen para que cubra toda la sección */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    min-height: 400px; /* Ajusta la altura mínima de la sección */
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Opcional: sombra para texto */
+}
+/* Capa oscura en el Hero Section */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Oscurece la imagen con transparencia */
+    z-index: 1;
+    pointer-events: none; /* Permite interactuar con los elementos debajo */
+}
+/* Asegura que el contenido esté por encima de la capa oscura */
+.hero-section .container {
+    position: relative;
+    z-index: 2; /* Asegura que el texto esté por encima */
+}
+/* Galería de imágenes en inicio*/
+.image-gallery {
+    background-color: #e6ebef; /* Color de fondo claro */
+}
+
+.image-gallery img {
+    transition: transform 0.3s ease-in-out; /* Efecto al pasar el mouse */
+    cursor: pointer;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05); /* Aumenta el tamaño ligeramente */
+}
+
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
+
+/* Menu*/
+.navbar {
+    background-color: #e8e8ed; /* Cambia el color de fondo (por ejemplo, gris claro) */
+}
+
+.navbar .navbar-brand {
+   /* display: flex; /* Activa flexbox */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+.nav-link.active {
+    color: #a52a2a !important; /* cambia de color */
+    background-color: #c0d2e7; /* Fondo azul */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.navbar-brand .logo {
+    width: 70px;
+    height: 75px;
+    object-fit: contain; /* Asegura que la imagen no se deforme */
+    margin-right: 10px; /* Espaciado entre el logo y el texto */
+}
+
+.navbar-brand .brand-text {
+    font-size:1.30rem; /* Ajusta el tamaño del texto */
+    font-weight: bold; /* Opcional, para resaltar el texto */
+    color: #1c9b9b;
+}
+
+/* Galeria*/
+.carousel-item img {
+    width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: 800px; /* Establece una altura fija */
+    object-fit: cover; /* Asegura que la imagen mantenga proporción y recorta los bordes si es necesario */
+}
+
+.img-fluid {
+    max-height: 300px; /* Ajusta la altura máxima */
+    object-fit: cover; /* Recorta la imagen para que se ajuste */
+}
+
+.img-zoom {
+    overflow: hidden; /* Oculta el contenido que sobresale */
+}
+
+.img-zoom img {
+    transition: transform 0.5s ease; /* Suaviza la animación */
+}
+
+.img-zoom:hover img {
+    transform: scale(1.1); /* Amplía la imagen al pasar el cursor */
+}
+
+.img-darken {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-darken img {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.img-darken:hover img {
+    opacity: 0.8; /* Oscurece la imagen */
+    transform: scale(1.1); /* Amplía la imagen */
+}
+
+.img-darken .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.img-darken:hover .overlay {
+    opacity: 1; /* Muestra el texto superpuesto */
+}
+
+.img-border {
+    position: relative;
+}
+
+.img-border img {
+    transition: box-shadow 0.5s ease;
+}
+
+.img-border:hover img {
+    box-shadow: 0px 0px 15px 5px #007bff; /* Borde animado azul */
+}
+
+/* Asegurar que la imagen del modal se ajuste correctamente */
+.modal-body img {
+    max-width: 100%; /* Imagen no excede el ancho de la ventana */
+    max-height: 80vh; /* Imagen no excede el 80% de la altura de la ventana */
+    object-fit: contain; /* Escala la imagen sin distorsionarla */
+}
+
+/* Para que el modal sea completamente responsivo */
+.modal-dialog {
+    max-width: 90%; /* El modal ocupa hasta el 90% del ancho de la pantalla */
+}
+
+.modal-content {
+    background-color: transparent; /* Fondo transparente alrededor de la imagen */
+    border: none; /* Sin bordes alrededor del modal */
+    box-shadow: none; /* Sin sombra */
+}
+
+#modalDescription {
+    color: #555; /* Color de texto */
+    margin-top: 10px; /* Espaciado superior */
+    font-size: 1.1rem; /* Tamaño del texto */
+}
+/*Para videos de galeria en Youtube*/
+#videos h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+#videos .ratio {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste de imágenes en servicios */
+.img-fluid {
+    height: 200px;
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+}
+
+h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.text-muted {
+    font-size: 0.9rem;
+}
+
+
+/*Contactos*/
+
+#contacto i {
+    color: #555; /* Color inicial del ícono */
+    transition: color 0.3s ease, transform 0.3s ease; /* Animación al pasar el cursor */
+}
+
+#contacto i:hover {
+    color: #007bff; /* Cambia el color al pasar el cursor */
+    transform: scale(1.2); /* Aumenta ligeramente el tamaño */
+}
+
